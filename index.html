@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HAM General License (India) — Study Guide</title>
+<meta name="description" content="A complete study guide for the ASOC Amateur Station Operator's Licence (General) exam in India, covering Section A theory, Section B regulations, Morse code, and Q-codes." />
+<meta property="og:title" content="HAM General License (India) — Study Guide" />
+<meta property="og:description" content="Covers ASOC exam syllabus: Radio Theory, ITU Regulations, Q-codes, Morse code, and an 8-week prep plan. Degree-holder exemption toggle included." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#7F77DD" />
+<style>
+/* ── Reset & tokens ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent:       #7F77DD;
+  --accent-light: #EEEDFE;
+  --accent-mid:   #AFA9EC;
+  --accent-dark:  #3C3489;
+  --teal:         #1D9E75;
+  --teal-light:   #E1F5EE;
+  --teal-dark:    #085041;
+  --amber:        #BA7517;
+  --amber-light:  #FAEEDA;
+  --amber-dark:   #633806;
+  --coral:        #D85A30;
+  --coral-light:  #FAECE7;
+  --coral-dark:   #712B13;
+  --green-light:  #EAF3DE;
+  --green-dark:   #27500A;
+  --bg:           #ffffff;
+  --bg2:          #f4f3ef;
+  --bg3:          #f9f9f7;
+  --text:         #1a1a18;
+  --text2:        #555;
+  --text3:        #999;
+  --border-col:   #e0ddd5;
+  --border:       0.5px solid var(--border-col);
+  --radius-sm:    6px;
+  --radius-md:    8px;
+  --radius-lg:    12px;
+  --gap:          12px;
+  --shadow:       0 1px 3px rgba(0,0,0,0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #1c1c1a;
+    --bg2:          #252522;
+    --bg3:          #141412;
+    --text:         #e8e6e0;
+    --text2:        #a0a09a;
+    --text3:        #666660;
+    --border-col:   #333330;
+    --accent-light: #26215C;
+    --accent-dark:  #CECBF6;
+    --teal-light:   #04342C;
+    --teal-dark:    #9FE1CB;
+    --amber-light:  #412402;
+    --amber-dark:   #FAC775;
+    --coral-light:  #4A1B0C;
+    --coral-dark:   #F5C4B3;
+    --green-light:  #173404;
+    --green-dark:   #C0DD97;
+    --shadow:       0 1px 3px rgba(0,0,0,0.3);
+  }
+}
+
+/* ── Base ───────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg3); color: var(--text); line-height: 1.6; font-size: 15px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+strong { font-weight: 500; }
+p { font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+/* ── Layout ─────────────────────────────────────────── */
+.container { max-width: 900px; margin: 0 auto; padding: 0 1.25rem; }
+
+/* ── Header ─────────────────────────────────────────── */
+header { background: var(--bg); border-bottom: var(--border); position: sticky; top: 0; z-index: 100; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.85rem 1.25rem; max-width: 900px; margin: 0 auto; }
+.site-title { display: flex; align-items: center; gap: 10px; }
+.site-icon { width: 32px; height: 32px; background: var(--accent-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.site-title h1 { font-size: 15px; font-weight: 500; color: var(--text); line-height: 1.2; }
+.site-sub { font-size: 11px; color: var(--text3); display: block; }
+
+/* ── Degree toggle ──────────────────────────────────── */
+.exemption-toggle { display: flex; align-items: center; gap: 10px; padding: 7px 14px; background: var(--bg2); border: var(--border); border-radius: 999px; cursor: pointer; user-select: none; flex-shrink: 0; transition: border-color 0.15s, background 0.15s; }
+.exemption-toggle:hover { border-color: var(--accent-mid); }
+.exemption-toggle.on { background: var(--accent-light); border-color: var(--accent-mid); }
+.sw { width: 32px; height: 18px; background: var(--border-col); border-radius: 999px; position: relative; transition: background 0.2s; flex-shrink: 0; }
+.sw::after { content: ''; position: absolute; width: 12px; height: 12px; background: var(--bg); border-radius: 50%; top: 3px; left: 3px; transition: transform 0.2s; box-shadow: var(--shadow); }
+.exemption-toggle.on .sw { background: var(--accent); }
+.exemption-toggle.on .sw::after { transform: translateX(14px); }
+.tl { font-size: 12px; color: var(--text2); }
+.tl strong { color: var(--accent-dark); }
+.tl .detail { color: var(--text3); }
+
+/* ── Exemption banner ───────────────────────────────── */
+.exempt-banner { display: none; background: var(--teal-light); border-left: 3px solid var(--teal); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 10px 14px; font-size: 13px; color: var(--teal-dark); margin-bottom: 1.25rem; line-height: 1.6; }
+body.exempt .exempt-banner { display: block; }
+
+/* ── Hero ───────────────────────────────────────────── */
+.hero { padding: 2rem 0 0; }
+.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); margin-bottom: 1.5rem; }
+.stat { background: var(--bg2); border-radius: var(--radius-md); padding: 12px; text-align: center; border: var(--border); }
+.stat-num { font-size: 22px; font-weight: 500; }
+.stat-lbl { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.ev { display: none; }
+body.exempt .fv { display: none; }
+body.exempt .ev { display: block; }
+
+/* ── Tab nav ────────────────────────────────────────── */
+.tab-nav { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 1.5rem; border-bottom: var(--border); }
+.tab { padding: 8px 16px; border-radius: var(--radius-md) var(--radius-md) 0 0; border: var(--border); border-bottom: none; cursor: pointer; font-size: 13px; background: var(--bg2); color: var(--text2); transition: background 0.12s, color 0.12s; position: relative; bottom: -0.5px; white-space: nowrap; }
+.tab:hover { background: var(--bg); color: var(--text); }
+.tab.active { background: var(--bg); color: var(--accent-dark); font-weight: 500; border-bottom: 1px solid var(--bg); }
+body.exempt .tab[data-eh] { opacity: 0.4; pointer-events: none; }
+
+/* ── Sections ───────────────────────────────────────── */
+.section { display: none; padding-bottom: 2.5rem; }
+.section.active { display: block; }
+
+/* ── Schedule variants ──────────────────────────────── */
+.sch-full { }
+.sch-ex   { display: none; }
+body.exempt .sch-full { display: none; }
+body.exempt .sch-ex   { display: block; }
+
+/* ── Cards & grids ──────────────────────────────────── */
+.week-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--gap); margin-bottom: 1.5rem; }
+.week-card { background: var(--bg); border: var(--border); border-radius: var(--radius-lg); padding: 1rem; box-shadow: var(--shadow); }
+.week-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text3); margin-bottom: 4px; }
+.week-title { font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+.week-items { list-style: none; }
+.week-items li { font-size: 12px; color: var(--text2); padding: 3px 0; border-bottom: 0.5px solid var(--border-col); display: flex; gap: 6px; align-items: flex-start; }
+.week-items li:last-child { border-bottom: none; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 5px; }
+.dot.t { background: var(--teal); }
+.dot.a { background: var(--amber); }
+.dot.c { background: var(--coral); }
+
+/* ── Phase tags ─────────────────────────────────────── */
+.pt { display: inline-block; font-size: 11px; padding: 3px 11px; border-radius: 999px; margin-bottom: 12px; font-weight: 500; }
+.pt-b { background: var(--accent-light); color: var(--accent-dark); }
+.pt-g { background: var(--teal-light);   color: var(--teal-dark); }
+.pt-a { background: var(--amber-light);  color: var(--amber-dark); }
+.pt-c { background: var(--coral-light);  color: var(--coral-dark); }
+
+/* ── Topic pills ────────────────────────────────────── */
+.t-section { margin-bottom: 1.5rem; }
+.t-header { font-size: 13px; font-weight: 500; margin-bottom: 8px; padding-bottom: 6px; border-bottom: var(--border); display: flex; justify-content: space-between; align-items: center; }
+.t-header.lg { font-size: 15px; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; }
+.bh { background: var(--coral-light);  color: var(--coral-dark); }
+.bm { background: var(--amber-light);  color: var(--amber-dark); }
+.be { background: var(--green-light);  color: var(--green-dark); }
+.pill-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill { font-size: 12px; padding: 4px 10px; border-radius: 999px; border: var(--border); color: var(--text2); background: var(--bg2); }
+
+/* ── Tip box ────────────────────────────────────────── */
+.tip { background: var(--bg2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 10px 14px; margin-top: 1rem; font-size: 13px; color: var(--text2); line-height: 1.6; }
+.tip.tl { border-color: var(--teal); }
+.tip.am { border-color: var(--amber); }
+
+/* ── Two-col + cards ────────────────────────────────── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); margin-bottom: 1rem; }
+.card { background: var(--bg); border: var(--border); border-radius: var(--radius-lg); padding: 1rem; box-shadow: var(--shadow); }
+.card .ct { font-size: 13px; font-weight: 500; margin-bottom: 10px; }
+.card ul { list-style: none; }
+.card ul li { font-size: 12px; color: var(--text2); padding: 3px 0; display: flex; gap: 6px; align-items: flex-start; }
+
+/* ── Resource cards ─────────────────────────────────── */
+.res-card { background: var(--bg); border: var(--border); border-radius: var(--radius-lg); padding: 1rem; margin-bottom: 10px; box-shadow: var(--shadow); }
+.res-title { font-size: 13px; font-weight: 500; margin-bottom: 6px; }
+.res-list { list-style: none; }
+.res-list li { font-size: 12px; color: var(--text2); padding: 3px 0; display: flex; gap: 6px; align-items: flex-start; }
+
+/* ── Tables ─────────────────────────────────────────── */
+.tbl-wrap { overflow-x: auto; margin-bottom: 1rem; }
+table { width: 100%; font-size: 12px; border-collapse: collapse; }
+th { padding: 7px 10px; text-align: left; background: var(--bg2); border-bottom: var(--border); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text3); }
+td { padding: 6px 10px; border-bottom: var(--border); color: var(--text2); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--bg2); }
+td.co { font-weight: 500; color: var(--accent-dark); white-space: nowrap; }
+td.mn { font-family: monospace; color: var(--accent); }
+span.ex { font-size: 10px; background: var(--accent-light); color: var(--accent-dark); padding: 1px 5px; border-radius: 999px; margin-left: 4px; }
+
+/* ── QSO exchange box ───────────────────────────────── */
+.qso { background: var(--bg2); border-radius: var(--radius-lg); padding: 1rem; font-size: 12px; line-height: 2.2; font-family: monospace; overflow-x: auto; margin-bottom: 1rem; }
+.qso .ca { color: var(--teal-dark); font-weight: 500; }
+.qso .cb { color: var(--accent-dark); font-weight: 500; }
+.qso .cc { color: var(--amber-dark); font-weight: 500; }
+.qso .an { font-family: system-ui, sans-serif; color: var(--text3); font-size: 11px; }
+
+/* ── Info grid ──────────────────────────────────────── */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 1rem; }
+.ic { background: var(--bg2); border-radius: var(--radius-md); padding: 12px; }
+.ic .it { font-size: 12px; font-weight: 500; color: var(--accent-dark); margin-bottom: 6px; }
+.ic p { font-size: 11px; color: var(--text2); line-height: 1.7; }
+
+/* ── Rules list ─────────────────────────────────────── */
+.rules { background: var(--bg2); border-radius: var(--radius-md); padding: 12px 14px; font-size: 12px; color: var(--text2); line-height: 2; }
+.rules div::before { content: '· '; color: var(--text3); }
+
+/* ── Footer ─────────────────────────────────────────── */
+footer { border-top: var(--border); background: var(--bg); padding: 1.5rem 1.25rem; margin-top: 2rem; }
+.footer-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 12px; color: var(--text3); }
+.footer-inner a { color: var(--text3); }
+.footer-inner a:hover { color: var(--accent); }
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 600px) {
+  .two-col { grid-template-columns: 1fr; }
+  .stat-num { font-size: 18px; }
+  .header-inner { flex-wrap: wrap; }
+  .tl .detail { display: none; }
+  th, td { padding: 5px 7px; }
+  .qso { font-size: 11px; line-height: 2; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="site-title">
+      <div class="site-icon" aria-hidden="true">📡</div>
+      <h1>HAM General License <span class="site-sub">India · ASOC Exam Study Guide</span></h1>
+    </div>
+    <div class="exemption-toggle" id="et" role="button" aria-pressed="false" tabindex="0">
+      <div class="sw" id="sw"></div>
+      <span class="tl"><strong>EE / Science degree</strong> <span class="detail">— exempt from Section A</span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="container">
+<div class="hero">
+
+  <div class="exempt-banner" role="alert">
+    <strong>Section A exemption active.</strong> As an Engineering / Science / Diploma holder with electronics, you are exempt from Section A of the written test. Your exam is <strong>Section B (Regulations) only + Morse code</strong>. The schedule below reflects this. Toggle the switch in the header to revert.
+  </div>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num fv">8</div><div class="stat-num ev">4</div>
+      <div class="stat-lbl">weeks to exam-ready</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num fv">60%</div><div class="stat-num ev">50%</div>
+      <div class="stat-lbl">written pass mark</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8 wpm</div>
+      <div class="stat-lbl">Morse requirement</div>
+    </div>
+  </div>
+
+  <nav class="tab-nav" role="tablist">
+    <div class="tab active" role="tab" data-tab="schedule"  tabindex="0">Weekly schedule</div>
+    <div class="tab"        role="tab" data-tab="theory"    tabindex="0" data-eh>Section A topics</div>
+    <div class="tab"        role="tab" data-tab="regs"      tabindex="0">Section B (Regs)</div>
+    <div class="tab"        role="tab" data-tab="morse"     tabindex="0">Morse code</div>
+    <div class="tab"        role="tab" data-tab="resources" tabindex="0">Resources</div>
+    <div class="tab"        role="tab" data-tab="reference" tabindex="0">Study material</div>
+  </nav>
+
+  <!-- ═══ SCHEDULE ══════════════════════════════════════ -->
+  <div id="schedule" class="section active" role="tabpanel">
+
+    <!-- Full 8-week -->
+    <div class="sch-full">
+      <span class="pt pt-b">Phase 1 — Build foundation (weeks 1–3)</span>
+      <div class="week-grid">
+        <div class="week-card">
+          <div class="week-label">Week 1</div><div class="week-title">DC fundamentals</div>
+          <ul class="week-items">
+            <li><span class="dot"></span>Ohm's law, Kirchhoff's laws</li>
+            <li><span class="dot"></span>Resistors, inductors, capacitors</li>
+            <li><span class="dot"></span>Diodes &amp; transistors basics</li>
+            <li><span class="dot"></span>Start Morse: learn A–M</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 2</div><div class="week-title">AC &amp; semiconductors</div>
+          <ul class="week-items">
+            <li><span class="dot"></span>RMS, reactance, impedance</li>
+            <li><span class="dot"></span>LC resonance, series/parallel</li>
+            <li><span class="dot"></span>Amplifiers, oscillators</li>
+            <li><span class="dot"></span>Morse: learn N–Z + digits</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 3</div><div class="week-title">Transmitters &amp; receivers</div>
+          <ul class="week-items">
+            <li><span class="dot"></span>TRF &amp; superhet receivers</li>
+            <li><span class="dot"></span>CW reception, squelch, AGC</li>
+            <li><span class="dot"></span>Crystal oscillators</li>
+            <li><span class="dot"></span>Morse: plain words at 5 wpm</li>
+          </ul>
+        </div>
+      </div>
+      <span class="pt pt-g">Phase 2 — Extend &amp; apply (weeks 4–5)</span>
+      <div class="week-grid">
+        <div class="week-card">
+          <div class="week-label">Week 4</div><div class="week-title">General-only theory</div>
+          <ul class="week-items">
+            <li><span class="dot t"></span>AM / FM / Pulse modulation</li>
+            <li><span class="dot t"></span>Power supplies, bridge rectifier</li>
+            <li><span class="dot t"></span>Ionosphere layers, critical freq</li>
+            <li><span class="dot t"></span>Satellite comms basics</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 5</div><div class="week-title">Propagation &amp; antennas</div>
+          <ul class="week-items">
+            <li><span class="dot t"></span>Ground / sky / space waves</li>
+            <li><span class="dot t"></span>Skip distance, fading</li>
+            <li><span class="dot t"></span>Common antenna types</li>
+            <li><span class="dot t"></span>Microwave antennas</li>
+          </ul>
+        </div>
+      </div>
+      <span class="pt pt-a">Phase 3 — Regulations + Morse speed (weeks 6–7)</span>
+      <div class="week-grid">
+        <div class="week-card">
+          <div class="week-label">Week 6</div><div class="week-title">Radio regulations</div>
+          <ul class="week-items">
+            <li><span class="dot a"></span>Indian WT Rules 1973 &amp; 1978</li>
+            <li><span class="dot a"></span>ITU Articles 2, 5, 15, 19, 25</li>
+            <li><span class="dot a"></span>Distress &amp; urgency signals</li>
+            <li><span class="dot a"></span>All Q-codes from syllabus</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 7</div><div class="week-title">Phonetics + mock tests</div>
+          <ul class="week-items">
+            <li><span class="dot a"></span>NATO phonetic alphabet</li>
+            <li><span class="dot a"></span>CW abbreviations (CQ, DE, AR …)</li>
+            <li><span class="dot a"></span>Full mock paper under 2 hrs</li>
+            <li><span class="dot a"></span>Morse: push to 7–8 wpm</li>
+          </ul>
+        </div>
+      </div>
+      <span class="pt pt-c">Phase 4 — Final revision (week 8)</span>
+      <div class="week-card" style="margin-bottom:1rem;">
+        <div class="week-label">Week 8</div><div class="week-title">Consolidate &amp; simulate exam conditions</div>
+        <ul class="week-items">
+          <li><span class="dot c"></span>Timed mock papers from DARTS question bank</li>
+          <li><span class="dot c"></span>Revisit weak areas from mock scores</li>
+          <li><span class="dot c"></span>Morse: two full 5-min receive + send sessions daily</li>
+          <li><span class="dot c"></span>Review Indian call sign series (Appendix 42) and frequency allocations</li>
+        </ul>
+      </div>
+      <div class="tip">If you hold an Engineering / Science degree or diploma with electronics, toggle the switch in the header — the schedule will collapse to 4 weeks and Section A will be removed.</div>
+    </div>
+
+    <!-- Exempt 4-week -->
+    <div class="sch-ex">
+      <div class="tip tl" style="margin-bottom:1.25rem;">Section A exemption active. This is a condensed 4-week plan covering only what you need: Section B (Regulations) and Morse code. Morse practice should run <em>every single day</em> from day one.</div>
+      <span class="pt pt-a">Phase 1 — Regulations deep dive (weeks 1–2)</span>
+      <div class="week-grid">
+        <div class="week-card">
+          <div class="week-label">Week 1</div><div class="week-title">Indian law &amp; ITU framework</div>
+          <ul class="week-items">
+            <li><span class="dot a"></span>Indian WT Act 1933 — all sections</li>
+            <li><span class="dot a"></span>WT Rules 1973 &amp; Amateur Rules 1978</li>
+            <li><span class="dot a"></span>ITU Articles 2, 5, 15, 19, 25</li>
+            <li><span class="dot a"></span>Morse: learn all 26 letters + digits</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 2</div><div class="week-title">Q-codes, signals &amp; distress</div>
+          <ul class="week-items">
+            <li><span class="dot a"></span>All 30 syllabus Q-codes (Q&amp;A form)</li>
+            <li><span class="dot a"></span>CW abbreviations — usage in context</li>
+            <li><span class="dot a"></span>Distress / urgency / safety signals</li>
+            <li><span class="dot a"></span>Morse: plain text at 5–6 wpm</li>
+          </ul>
+        </div>
+      </div>
+      <span class="pt pt-c">Phase 2 — Mock tests + Morse speed (weeks 3–4)</span>
+      <div class="week-grid">
+        <div class="week-card">
+          <div class="week-label">Week 3</div><div class="week-title">Section B practice tests</div>
+          <ul class="week-items">
+            <li><span class="dot c"></span>DARTS Sec B Test Papers 1, 2 &amp; 3</li>
+            <li><span class="dot c"></span>NATO phonetics &amp; call sign series</li>
+            <li><span class="dot c"></span>Authorised frequencies &amp; power PDF</li>
+            <li><span class="dot c"></span>Morse: consistent 7–8 wpm</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 4</div><div class="week-title">Final revision &amp; simulation</div>
+          <ul class="week-items">
+            <li><span class="dot c"></span>Full timed mock under 2 hrs</li>
+            <li><span class="dot c"></span>Revisit any weak regulation areas</li>
+            <li><span class="dot c"></span>Two 5-min Morse sessions daily</li>
+            <li><span class="dot c"></span>ITU amendments &amp; Appendix 42</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tip">The passing mark for the written test is <strong>50% in Section B</strong> (which also satisfies the 60% aggregate since it's your only section). Morse is your primary challenge — start day one, not week three.</div>
+    </div>
+  </div>
+
+  <!-- ═══ THEORY ════════════════════════════════════════ -->
+  <div id="theory" class="section" role="tabpanel">
+    <div class="tip tl" id="th-note" hidden style="margin-bottom:1.25rem;"><strong>Exemption active.</strong> You do not sit Section A. This content is shown for reference only.</div>
+    <div class="t-section">
+      <div class="t-header">Shared with Restricted (foundation) <span class="badge bm">core</span></div>
+      <div class="pill-list">
+        <span class="pill">Ohm's law</span><span class="pill">Kirchhoff's laws</span><span class="pill">Passive components</span><span class="pill">Diodes &amp; transistors</span><span class="pill">AC fundamentals</span><span class="pill">Series/parallel LC</span><span class="pill">Resonance</span><span class="pill">Rectifiers</span><span class="pill">TRF &amp; Superhet</span><span class="pill">CW reception</span><span class="pill">Crystal oscillators</span><span class="pill">Radio wave propagation</span><span class="pill">Frequency bands</span><span class="pill">Antenna basics</span>
+      </div>
+    </div>
+    <div class="t-section">
+      <div class="t-header">General-only additions <span class="badge bh">extra for General</span></div>
+      <div class="pill-list">
+        <span class="pill">AM / FM / Pulse modulation</span><span class="pill">Demodulation</span><span class="pill">Transformer matching</span><span class="pill">Transformer losses</span><span class="pill">Bridge rectifier</span><span class="pill">Smoothing &amp; regulation</span><span class="pill">Facsimile &amp; TV signals</span><span class="pill">Ionosphere layers</span><span class="pill">Critical frequency</span><span class="pill">Day/night frequencies</span><span class="pill">Microwave antennas</span><span class="pill">Satellite communication</span>
+      </div>
+    </div>
+    <div class="tip">Section A needs 50% separately. Modulation (AM/FM) and propagation (ionosphere) are the most-tested General-only areas.</div>
+  </div>
+
+  <!-- ═══ REGS ═══════════════════════════════════════════ -->
+  <div id="regs" class="section" role="tabpanel">
+    <div class="t-section">
+      <div class="t-header">Indian rules to know <span class="badge bh">must-know</span></div>
+      <div class="pill-list"><span class="pill">Indian WT Act 1933</span><span class="pill">WT Rules 1973</span><span class="pill">Amateur Service Rules 1978</span><span class="pill">Amendments</span><span class="pill">Call sign series (Appendix 42)</span><span class="pill">Authorised frequencies &amp; power</span></div>
+    </div>
+    <div class="t-section">
+      <div class="t-header">ITU Radio Regulations <span class="badge bh">must-know</span></div>
+      <div class="pill-list"><span class="pill">Article 2 — Nomenclature</span><span class="pill">Article 5 — Freq allocation</span><span class="pill">Article 15 — Interference</span><span class="pill">Article 19 — ID of stations</span><span class="pill">Article 25 — Amateur stations</span><span class="pill">Articles 30–33 — Distress &amp; urgency</span><span class="pill">Appendix 1 — Emission designators</span><span class="pill">Appendix 14 — Phonetics</span></div>
+    </div>
+    <div class="t-section">
+      <div class="t-header">Q-codes to memorise <span class="badge bm">medium</span></div>
+      <div class="pill-list"><span class="pill">QRA QRG QRH QRI QRK</span><span class="pill">QRL QRM QRN QRO QRS</span><span class="pill">QRT QRU QRV QRW QRX</span><span class="pill">QRZ QSA QSB QSL QSO</span><span class="pill">QSU QSV QSW QSX QSY</span><span class="pill">QSZ QTC QTH QTR QUM</span></div>
+    </div>
+    <div class="t-section">
+      <div class="t-header">CW abbreviations <span class="badge be">straightforward</span></div>
+      <div class="pill-list"><span class="pill">AA AB AR AS C</span><span class="pill">CFM CL CQ DE K</span><span class="pill">NIL OK R TU VA WA WB</span></div>
+    </div>
+    <div class="tip">Section B needs 50% separately. The DARTS question bank has dedicated Sec B test papers 1, 2 &amp; 3 — do all three repeatedly.</div>
+  </div>
+
+  <!-- ═══ MORSE ══════════════════════════════════════════ -->
+  <div id="morse" class="section" role="tabpanel">
+    <div class="two-col">
+      <div class="card"><div class="ct">What the test requires</div><ul>
+        <li><span class="dot"></span>200-character plain-language passage</li>
+        <li><span class="dot"></span>Letters, digits, punctuation (. , ; – ?)</li>
+        <li><span class="dot"></span>5 minutes continuous at 8 wpm</li>
+        <li><span class="dot"></span>Max 5 errors allowed</li>
+        <li><span class="dot"></span>1 min error-free = automatic pass</li>
+        <li><span class="dot"></span>Receive AND send in same session</li>
+        <li><span class="dot"></span>1-min practice run at start (ungraded)</li>
+      </ul></div>
+      <div class="card"><div class="ct">Training milestones</div><ul>
+        <li><span class="dot t"></span>Week 1–2: Learn all characters</li>
+        <li><span class="dot t"></span>Week 3: Copy callsigns at 4 wpm</li>
+        <li><span class="dot t"></span>Week 4: Plain text at 5–6 wpm</li>
+        <li><span class="dot t"></span>Week 5: Plain text at 7 wpm</li>
+        <li><span class="dot t"></span>Week 6–7: Consistent 8+ wpm</li>
+        <li><span class="dot t"></span>Week 8: Full 5-min sessions daily</li>
+      </ul></div>
+    </div>
+    <div class="tip">Train receiving at 10–12 wpm so 8 wpm feels comfortable. Use the <strong>Koch method</strong> — start with 2 characters, add one only when you hit 90% accuracy. Practice sending on a straight key daily — muscle memory matters as much as ear training.</div>
+  </div>
+
+  <!-- ═══ RESOURCES ══════════════════════════════════════ -->
+  <div id="resources" class="section" role="tabpanel">
+    <div class="res-card"><div class="res-title">DARTS official material</div><ul class="res-list">
+      <li><span class="dot"></span><a href="https://darts.org.in/question-papers-unsolved/" target="_blank" rel="noopener">Question bank (unsolved)</a></li>
+      <li><span class="dot"></span><a href="https://darts.org.in/test-paper-1-regulation/" target="_blank" rel="noopener">Sec B Test papers 1, 2, 3</a></li>
+      <li><span class="dot"></span><a href="https://darts.org.in/q-codes/" target="_blank" rel="noopener">Q-codes reference</a></li>
+      <li><span class="dot"></span><a href="https://darts.org.in/frequencies-authorized/" target="_blank" rel="noopener">Authorised frequencies &amp; modes</a></li>
+      <li><span class="dot"></span><a href="https://darts.org.in/morse-made-phonetics/" target="_blank" rel="noopener">Morse &amp; phonetics guide</a></li>
+      <li><span class="dot"></span><a href="https://darts.org.in/indian-wireless-telegraphy-act-2/" target="_blank" rel="noopener">Indian WT Act 1933 (full text)</a></li>
+    </ul></div>
+    <div class="res-card"><div class="res-title">Morse training</div><ul class="res-list">
+      <li><span class="dot t"></span><a href="https://lcwo.net" target="_blank" rel="noopener">LCWO.net</a> — best browser-based Koch trainer</li>
+      <li><span class="dot t"></span>Ham Morse / Morse Mania — mobile apps</li>
+      <li><span class="dot t"></span>G4FON Koch trainer — desktop (Windows)</li>
+    </ul></div>
+    <div class="res-card"><div class="res-title">Study books</div><ul class="res-list">
+      <li><span class="dot a"></span>ARRL Ham Radio License Manual (theory concepts)</li>
+      <li><span class="dot a"></span>India-specific: "Ham Radio for Beginners" — VU2NSB</li>
+      <li><span class="dot a"></span>Indian WT Rules 1978 (official gazette)</li>
+    </ul></div>
+    <div class="tip">Apply through WPC (Wireless Planning &amp; Coordination, DoT) at <a href="https://wpc.gov.in" target="_blank" rel="noopener">wpc.gov.in</a>. Fees and registration via <a href="https://bharatkosh.gov.in" target="_blank" rel="noopener">Bharatkosh portal</a>.</div>
+  </div>
+
+  <!-- ═══ STUDY MATERIAL ════════════════════════════════ -->
+  <div id="reference" class="section" role="tabpanel">
+
+    <!-- Q-code table -->
+    <div class="t-section">
+      <div class="t-header">Q-codes — full syllabus list <span class="badge bm">source: DARTS / ITU</span></div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th style="width:80px;">Code</th><th>As a question (?)</th><th>As a statement</th></tr></thead>
+        <tbody id="qt"></tbody>
+      </table></div>
+      <div class="tip">Syllabus codes are highlighted. The exam tests both directions — a scenario and asks which code, or a code and asks what it means.</div>
+    </div>
+
+    <!-- CW abbreviations -->
+    <div class="t-section">
+      <div class="t-header">CW abbreviations — all syllabus-listed</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th style="width:70px;">Code</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td class="co">AA</td><td>All after</td></tr>
+          <tr><td class="co">AB</td><td>All before</td></tr>
+          <tr><td class="co">AR</td><td>End of transmission (over and out)</td></tr>
+          <tr><td class="co">AS</td><td>Wait / stand by</td></tr>
+          <tr><td class="co">C</td><td>Yes / correct / affirmative</td></tr>
+          <tr><td class="co">CFM</td><td>Confirm / I confirm</td></tr>
+          <tr><td class="co">CL</td><td>Closing station / going off air</td></tr>
+          <tr><td class="co">CQ</td><td>General call to all stations</td></tr>
+          <tr><td class="co">DE</td><td>From (identifying the sender)</td></tr>
+          <tr><td class="co">K</td><td>Go ahead / invite any station to transmit</td></tr>
+          <tr><td class="co">NIL</td><td>Nothing / I have nothing for you</td></tr>
+          <tr><td class="co">OK</td><td>Agreed / that is correct</td></tr>
+          <tr><td class="co">R</td><td>Received / roger</td></tr>
+          <tr><td class="co">TU</td><td>Thank you</td></tr>
+          <tr><td class="co">VA</td><td>End of work / final sign-off</td></tr>
+          <tr><td class="co">WA</td><td>Word after</td></tr>
+          <tr><td class="co">WB</td><td>Word before</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- Morse + phonetics -->
+    <div class="t-section">
+      <div class="t-header">Morse code + NATO phonetics</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th style="width:40px;">Letter</th><th style="width:100px;">Morse</th><th>NATO phonetic</th></tr></thead>
+        <tbody id="mt"></tbody>
+      </table></div>
+      <div style="margin-top:1rem;">
+        <div class="t-header">Digits</div>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th style="width:40px;">Digit</th><th>Morse</th></tr></thead>
+          <tbody id="dt"></tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- Indian WT Act -->
+    <div class="t-section">
+      <div class="t-header">Indian Wireless Telegraphy Act 1933 — key provisions</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th style="width:90px;">Section</th><th>Summary</th></tr></thead>
+        <tbody>
+          <tr><td class="co">Sec 3</td><td>No person shall possess wireless telegraphy apparatus without a licence</td></tr>
+          <tr><td class="co">Sec 4</td><td>Central Govt may exempt persons or classes of persons from the Act</td></tr>
+          <tr><td class="co">Sec 5</td><td>Licensing authority: Telegraph Authority under the Indian Telegraph Act 1885</td></tr>
+          <tr><td class="co">Sec 6(1)</td><td>Non-transmitter WT apparatus without licence: fine up to ₹100 (1st), ₹250 (repeat)</td></tr>
+          <tr><td class="co">Sec 6(1A)</td><td>Wireless transmitter without licence: imprisonment up to 3 years, or fine up to ₹1000, or both</td></tr>
+          <tr><td class="co">Sec 7</td><td>Power of search: authorised officers may search premises where unlicensed apparatus is suspected</td></tr>
+          <tr><td class="co">Sec 10</td><td>Central Govt may make rules — licensing conditions, forms, fees, records, sale of WT apparatus</td></tr>
+        </tbody>
+      </table></div>
+      <div class="tip">Key definition: "Wireless communication" = transmission/reception using electricity, magnetism, or radio waves without wires. "Radio waves" = electromagnetic waves below 3,000 GHz propagated without artificial guide.</div>
+    </div>
+
+    <!-- Practice tests -->
+    <div class="t-section">
+      <div class="t-header">Practice tests — Section B (hosted on DARTS)</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Test</th><th>Questions</th><th>Link</th></tr></thead>
+        <tbody>
+          <tr><td>Test Paper 1</td><td>30 MCQs — Regulation</td><td><a href="https://docs.google.com/forms/d/1UjpLSleM5RM36eDn_BM5v0egDu7YuPdqHwzt9aqCPCk/viewform" target="_blank" rel="noopener">Open test ↗</a></td></tr>
+          <tr><td>Test Paper 2</td><td>30 MCQs — Regulation</td><td><a href="https://darts.org.in/test-paper-2-regulation/" target="_blank" rel="noopener">Open page ↗</a></td></tr>
+          <tr><td>Test Paper 3</td><td>30 MCQs — Regulation</td><td><a href="https://darts.org.in/test-paper-3-regulation-sec-b/" target="_blank" rel="noopener">Open page ↗</a></td></tr>
+          <tr><td>Question bank</td><td>Full unsolved bank</td><td><a href="https://darts.org.in/question-papers-unsolved/" target="_blank" rel="noopener">Open page ↗</a></td></tr>
+          <tr><td>Freq / Power / Mode</td><td>Authorised bands PDF</td><td><a href="https://darts.org.in/wp-content/uploads/2017/09/Authorised-Frequencies-Modes-Power.pdf" target="_blank" rel="noopener">Download PDF ↗</a></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- Q&A mechanic -->
+    <div class="t-section">
+      <div class="t-header lg">Understanding Q codes as questions and answers</div>
+      <p style="margin-bottom:1rem;">Every Q code does double duty. Without a question mark it is a <strong>statement</strong>. Add a <strong>?</strong> and it becomes the corresponding question — the same three letters, flipped by a single symbol.</p>
+
+      <div class="t-header">The flip mechanic — worked examples</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th style="width:70px;">Code</th><th>As a statement</th><th>As a question (?)</th></tr></thead>
+        <tbody>
+          <tr><td class="co">QRT</td><td>I am suspending operation / closing down</td><td>Shall I cease transmitting?</td></tr>
+          <tr><td class="co">QRM</td><td>I am being interfered with (man-made)</td><td>Are you being interfered with?</td></tr>
+          <tr><td class="co">QSL</td><td>I acknowledge receipt (confirmed)</td><td>Can you acknowledge receipt?</td></tr>
+          <tr><td class="co">QTH</td><td>My location is … (place or lat/long)</td><td>What is your location?</td></tr>
+          <tr><td class="co">QRV</td><td>I am ready to receive / operate</td><td>Are you ready?</td></tr>
+          <tr><td class="co">QSY</td><td>Change your transmission frequency to … kHz</td><td>Shall I change my transmission frequency?</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="t-header" style="margin-top:1.25rem;">Confusable pairs — the exam loves these</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th style="width:120px;">Pair</th><th>How to tell them apart</th></tr></thead>
+        <tbody>
+          <tr><td class="co" style="color:var(--coral-dark);">QRM vs QRN</td><td>QRM = Man-made interference. QRN = Natural noise (static, lightning). <em>M for Man, N for Nature.</em></td></tr>
+          <tr><td class="co" style="color:var(--coral-dark);">QRO vs QRP</td><td>QRO = increase power. QRP = decrease power. Hams also use QRP informally to mean low-power operating.</td></tr>
+          <tr><td class="co" style="color:var(--coral-dark);">QSL vs QSO</td><td>QSL = acknowledgement / confirmation (like a receipt). QSO = a two-way contact. You <em>have</em> a QSO; you <em>send</em> a QSL card to confirm it.</td></tr>
+          <tr><td class="co" style="color:var(--coral-dark);">QRK vs QSA</td><td>QRK = readability (how clearly you copy, 1–5). QSA = signal strength (how strong, 1–5). Same scale, different qualities.</td></tr>
+          <tr><td class="co" style="color:var(--coral-dark);">QRX vs QRV</td><td>QRX = stand by / wait. QRV = I am ready now. QRX asks you to wait; QRV says go ahead.</td></tr>
+          <tr><td class="co" style="color:var(--coral-dark);">QRI vs QRH</td><td>QRI = tone quality (good / variable / bad). QRH = frequency stability (is it drifting?). QRI is about sound; QRH is about frequency.</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="t-header" style="margin-top:1.25rem;">Grouping by middle letter</div>
+      <div class="info-grid">
+        <div class="ic"><div class="it">QR_ — operating conditions</div><p>Frequency, interference, power, readability, tone, stopping, readiness — everything about the state of a live transmission.</p></div>
+        <div class="ic"><div class="it">QS_ — scheduling &amp; contacts</div><p>Sending, acknowledgement, contacts (QSO), frequency changes (QSY), listening (QSX), relaying (QSU) — arranging and confirming contacts.</p></div>
+        <div class="ic"><div class="it">QT_ — time &amp; location</div><p>QTH = location. QTR = correct time. QTC = messages. Small group, easy to learn as a set.</p></div>
+      </div>
+
+      <div class="t-header" style="margin-top:1.25rem;">A typical QSO exchange — Q codes in context</div>
+      <div class="qso">
+        <div><span class="ca">VU2XYZ:</span> CQ CQ CQ DE VU2XYZ VU2XYZ K <span class="an">← general call; DE = from; K = go ahead (any station)</span></div>
+        <div><span class="cb">VU2ABC:</span> VU2XYZ DE VU2ABC QRK? QSA? <span class="an">← how is my readability / signal strength?</span></div>
+        <div><span class="ca">VU2XYZ:</span> VU2ABC DE VU2XYZ QRK 4 QSA 4 QTH? <span class="an">← readability 4, strength 4. What is your location?</span></div>
+        <div><span class="cb">VU2ABC:</span> QTH Mumbai QRM? QRN? <span class="an">← my location is Mumbai. Do you have interference / static?</span></div>
+        <div><span class="ca">VU2XYZ:</span> QRM 2 QRN NIL QSY 14225 C? <span class="an">← some man-made interference, no static. Move to 14.225 MHz?</span></div>
+        <div><span class="cb">VU2ABC:</span> C QSL QRT AR <span class="an">← yes, confirmed, closing down, end of transmission</span></div>
+      </div>
+      <div class="tip">In the exam, match the direction: <em>telling</em> someone your location = QTH (statement); <em>asking</em> for theirs = QTH? (question).</div>
+    </div>
+
+    <!-- CW deep dive -->
+    <div class="t-section">
+      <div class="t-header lg">CW abbreviations — in context</div>
+      <p style="margin-bottom:1rem;">Unlike Q codes, CW abbreviations are not question/answer pairs — each has one fixed meaning. They are procedural signals that structure a Morse exchange.</p>
+
+      <div class="t-header">Procedural flow</div>
+      <div class="qso">
+        <div><span class="ca">Step 1 — Call:</span>    CQ CQ DE VU2XYZ K <span class="an">← CQ = calling all; DE = from; K = go ahead (any station)</span></div>
+        <div><span class="cb">Step 2 — Reply:</span>   VU2XYZ DE VU2ABC R K <span class="an">← R = received; K = go ahead (you specifically)</span></div>
+        <div><span class="ca">Step 3 — Exchange:</span> CFM QTH Delhi TU <span class="an">← CFM = confirm; TU = thank you</span></div>
+        <div><span class="cb">Step 4 — Close:</span>   OK TU 73 VA <span class="an">← OK = agreed; VA = end of work / final sign-off</span></div>
+        <div><span class="cc">If interrupted:</span>   AS AS <span class="an">← AS = wait / stand by</span></div>
+        <div><span class="cc">If closing station:</span> QRT CL AR <span class="an">← QRT = suspending; CL = closing station; AR = end of tx</span></div>
+      </div>
+
+      <div class="t-header" style="margin-top:1.25rem;">AR vs VA vs K — the three endings</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th style="width:50px;">Code</th><th>Meaning</th><th>When to use</th></tr></thead>
+        <tbody>
+          <tr><td class="co">AR</td><td>End of transmission</td><td>End of a single message. The contact may continue.</td></tr>
+          <tr><td class="co">VA</td><td>End of work / final sign-off</td><td>The entire QSO is over. Often followed by CL if going off air.</td></tr>
+          <tr><td class="co">K</td><td>Go ahead / over</td><td>Invitation to transmit — not an ending, an invitation.</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="t-header" style="margin-top:1.25rem;">AA / AB / WA / WB — the message-editing group</div>
+      <div class="qso">
+        <div><span class="ca">Sender:</span>   THE MEETING IS AT 1400 HOURS</div>
+        <div><span class="cb">Receiver: AA HOURS</span>  <span class="an">← All after HOURS — repeat everything after the word HOURS</span></div>
+        <div><span class="cb">Receiver: AB 1400</span>   <span class="an">← All before 1400 — repeat everything before 1400</span></div>
+        <div><span class="cb">Receiver: WA MEETING</span><span class="an">← Word after MEETING — what is the next word?</span></div>
+        <div><span class="cb">Receiver: WB 1400</span>   <span class="an">← Word before 1400 — what is the preceding word?</span></div>
+      </div>
+      <div class="tip">NIL = nothing for you / no traffic. C = yes / correct / affirmative. Both are complete messages on their own — don't confuse them.</div>
+    </div>
+
+    <!-- Distress & urgency -->
+    <div class="t-section">
+      <div class="t-header lg">Distress &amp; urgency signals (ITU Articles 30–33)</div>
+      <p style="margin-bottom:1rem;">The ITU defines a strict three-level priority hierarchy. All other traffic must cease when a distress or urgency call is in progress.</p>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th style="width:90px;">Category</th><th>Voice</th><th>Morse</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:500;color:var(--coral-dark);">Distress</td><td style="font-family:monospace;color:var(--coral-dark);">MAYDAY</td><td style="font-family:monospace;color:var(--coral-dark);">SOS (···−−−···)</td><td>Grave and imminent danger — immediate assistance required. Sent three times.</td></tr>
+          <tr><td style="font-weight:500;color:var(--amber-dark);">Urgency</td><td style="font-family:monospace;color:var(--amber-dark);">PAN PAN</td><td style="font-family:monospace;color:var(--amber-dark);">XXX</td><td>Urgent — safety of vessel or person, not immediately life-threatening.</td></tr>
+          <tr><td style="font-weight:500;color:var(--teal-dark);">Safety</td><td style="font-family:monospace;color:var(--teal-dark);">SÉCURITÉ</td><td style="font-family:monospace;color:var(--teal-dark);">TTT</td><td>Important navigational or meteorological warning. Lowest of the three.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="t-header" style="margin-top:1.25rem;">Key rules for the exam</div>
+      <div class="rules">
+        <div>Distress frequency: <strong>500 kHz</strong> (CW) and <strong>2182 kHz</strong> (voice) internationally</div>
+        <div>SOS is sent as a continuous sequence (···−−−···) — not three separate letters with gaps between them</div>
+        <div>The distress call must be sent <strong>three times</strong>, followed by DE, then the station call sign (also three times)</div>
+        <div>All stations hearing a distress call must immediately cease transmitting on that frequency and listen</div>
+        <div>Only the station in distress, or a station authorised by it, may cancel the distress traffic</div>
+        <div>QUM means: may I resume normal working? — sent to the controlling station after distress traffic ends</div>
+      </div>
+    </div>
+
+  </div><!-- /reference -->
+
+</div><!-- /hero -->
+</div><!-- /container -->
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>Syllabus source: <a href="https://darts.org.in/exam-syllabus-2/" target="_blank" rel="noopener">DARTS — darts.org.in</a></span>
+    <span>Exam body: <a href="https://wpc.gov.in" target="_blank" rel="noopener">WPC Wing, DoT, Govt. of India</a></span>
+    <span>Built for self-study · No affiliation with DARTS or WPC</span>
+  </div>
+</footer>
+
+<script>
+/* ── Tab routing (hash-based) ─────────────────────── */
+function activateTab(id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === id));
+  document.querySelectorAll('.section').forEach(s => s.classList.toggle('active', s.id === id));
+}
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    if (tab.hasAttribute('data-eh') && document.body.classList.contains('exempt')) return;
+    const id = tab.dataset.tab;
+    history.pushState(null, '', '#' + id);
+    activateTab(id);
+  });
+  tab.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tab.click(); } });
+});
+window.addEventListener('popstate', () => { const h = location.hash.slice(1); if (h) activateTab(h); });
+const initHash = location.hash.slice(1);
+if (initHash) activateTab(initHash);
+
+/* ── Degree exemption toggle ──────────────────────── */
+const toggle = document.getElementById('et');
+const thNote = document.getElementById('th-note');
+
+function setExempt(on) {
+  document.body.classList.toggle('exempt', on);
+  toggle.classList.toggle('on', on);
+  toggle.setAttribute('aria-pressed', on);
+  if (thNote) thNote.hidden = !on;
+  localStorage.setItem('ham-exempt', on ? '1' : '0');
+  if (on && location.hash === '#theory') { history.pushState(null,'','#schedule'); activateTab('schedule'); }
+}
+toggle.addEventListener('click', () => setExempt(!document.body.classList.contains('exempt')));
+toggle.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); } });
+if (localStorage.getItem('ham-exempt') === '1') setExempt(true);
+
+/* ── Q-code table ─────────────────────────────────── */
+const qcodes = [
+  ["QRA","What is the name / call sign of your station?","The name / call sign of my station is …"],
+  ["QRG","Will you tell me my exact frequency?","Your exact frequency is … kHz / MHz"],
+  ["QRH","Does my frequency vary?","Your frequency varies"],
+  ["QRI","How is the tone of my transmission?","The tone is 1=good, 2=variable, 3=bad"],
+  ["QRK","What is the readability of my signals? (1–5)","The readability is … (1=bad, 5=excellent)"],
+  ["QRL","Are you busy?","I am busy. Please do not interfere"],
+  ["QRM","Do you have interference?","I have interference"],
+  ["QRN","Are you troubled by static?","I am troubled by static noise"],
+  ["QRO","Shall I increase transmit power?","Please increase transmit power"],
+  ["QRP","Shall I decrease transmit power?","Please decrease transmit power"],
+  ["QRQ","Shall I send faster?","Please send faster (… wpm)"],
+  ["QRS","Shall I send more slowly?","Please send more slowly (… wpm)"],
+  ["QRT","Shall I cease operation?","I am suspending operation"],
+  ["QRU","Have you anything for me?","I have nothing for you"],
+  ["QRV","Are you ready?","I am ready"],
+  ["QRW","Shall I inform … that you are calling on … kHz?","Please inform … that I am calling on … kHz"],
+  ["QRX","When will you call me again?","I will call you again at … hours on … kHz"],
+  ["QRZ","Who is calling me?","You are being called by … on … kHz"],
+  ["QSA","What is the strength of my signals? (1–5)","The strength is … (1=very weak, 5=very strong)"],
+  ["QSB","Are my signals fading?","Your signals are fading"],
+  ["QSL","Can you acknowledge receipt?","I am acknowledging receipt"],
+  ["QSO","Can you communicate with … direct or by relay?","I can communicate with … direct (or by relay through …)"],
+  ["QSU","Shall I send or reply on this frequency?","Please send or reply on this frequency"],
+  ["QSV","Shall I send a series of V on this frequency?","Please send a series of V on this frequency"],
+  ["QSW","Will you send on … kHz?","I will send on … kHz"],
+  ["QSX","Will you listen to … on … kHz?","I am listening to … on … kHz"],
+  ["QSY","Shall I change transmission frequency?","Please change transmission frequency to … kHz"],
+  ["QSZ","Shall I send each word more than once?","Send each word twice (or … times)"],
+  ["QTC","How many messages have you to send?","I have … messages for you"],
+  ["QTH","What is your position?","My position is … latitude, … longitude"],
+  ["QTR","What is the correct time?","The correct time is … hours"],
+  ["QUM","May I resume normal working?","You may resume normal working"],
+];
+const syl = new Set(["QRA","QRG","QRH","QRI","QRK","QRL","QRM","QRN","QRO","QRS","QRT","QRU","QRV","QRW","QRX","QRZ","QSA","QSB","QSL","QSO","QSU","QSV","QSW","QSX","QSY","QSZ","QTC","QTH","QTR","QUM"]);
+const qtb = document.getElementById('qt');
+qcodes.forEach(([c,q,a]) => {
+  const tr = document.createElement('tr');
+  const inS = syl.has(c);
+  tr.innerHTML = `<td class="co">${c}${inS?'<span class="ex">exam</span>':''}</td><td>${q}</td><td>${a}</td>`;
+  qtb.appendChild(tr);
+});
+
+/* ── Morse + phonetics ────────────────────────────── */
+const morseData = [
+  ["A","·−","Alpha"],["B","−···","Bravo"],["C","−·−·","Charlie"],["D","−··","Delta"],
+  ["E","·","Echo"],["F","··−·","Foxtrot"],["G","−−·","Golf"],["H","····","Hotel"],
+  ["I","··","India"],["J","·−−−","Juliet"],["K","−·−","Kilo"],["L","·−··","Lima"],
+  ["M","−−","Mike"],["N","−·","November"],["O","−−−","Oscar"],["P","·−−·","Papa"],
+  ["Q","−−·−","Quebec"],["R","·−·","Romeo"],["S","···","Sierra"],["T","−","Tango"],
+  ["U","··−","Uniform"],["V","···−","Victor"],["W","·−−","Whiskey"],["X","−··−","X-ray"],
+  ["Y","−·−−","Yankee"],["Z","−−··","Zulu"],
+];
+const mtb = document.getElementById('mt');
+morseData.forEach(([l,m,p]) => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td style="font-weight:500;">${l}</td><td class="mn">${m}</td><td>${p}</td>`;
+  mtb.appendChild(tr);
+});
+const digitData = [["0","−−−−−"],["1","·−−−−"],["2","··−−−"],["3","···−−"],["4","····−"],["5","·····"],["6","−····"],["7","−−···"],["8","−−−··"],["9","−−−−·"]];
+const dtb = document.getElementById('dt');
+digitData.forEach(([d,m]) => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td style="font-weight:500;">${d}</td><td class="mn">${m}</td>`;
+  dtb.appendChild(tr);
+});
+</script>
+</body>
+</html>
